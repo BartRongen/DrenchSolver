@@ -11,7 +11,6 @@ public class Runner {
     public void run(){
         Printer printer = new Printer();
         Creater creater = new Creater();
-        //Clicker clicker = new Clicker();
         creater.finished = false;
         Tile[][] tiles = new Tile[14][14];
         Thread t = new Thread(new ScreenCapture());
@@ -24,20 +23,17 @@ public class Runner {
         }
         try {
             BufferedImage capture = ImageIO.read(new File("capture.png"));
-            //printer.print(capture);
             tiles = creater.createTileMap(capture);
-            //printer.printTileMap(tiles);
             for (int i=0; i<30; i++){
                 clicker = new Thread(new Clicker(creater.getMax()));
                 clicker.start();
                 clicker.join();
-                Thread.sleep(50);
+                Thread.sleep(40);
                 t = new Thread(new ScreenCapture());
                 t.start();
                 t.join();
                 capture = ImageIO.read(new File("capture.png"));
                 tiles = creater.createTileMap(capture);
-                //printer.printTileMap(tiles);
                 if (creater.finished){
                     break;
                 }
