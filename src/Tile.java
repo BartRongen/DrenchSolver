@@ -40,6 +40,12 @@ public class Tile {
                 colorname = "orange";
                 colorid = 5;
                 break;
+            case -13254903:
+                colorname = "success";
+                break;
+            case -308191:
+                colorname = "failure";
+                break;
         }
     }
 }

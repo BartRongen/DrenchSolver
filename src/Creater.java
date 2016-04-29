@@ -9,6 +9,7 @@ public class Creater {
     private Tile[][] tiles;
     private int[] counter;
     public boolean finished;
+    public boolean success;
 
     public Tile[][] createTileMap(BufferedImage image){
         int dx = image.getWidth()/14;
@@ -32,9 +33,13 @@ public class Creater {
         tiles[0][0].visited = true;
         checkActive(0,0,tiles[0][0].color);
 
-        if (tiles[1][1].colorname == null){
+        if (tiles[1][1].colorname == "success"){
             finished = true;
+            success = true;
             System.out.println("finished");
+        } else if (tiles[1][1].colorname == "failure"){
+            finished = true;
+            success = false;
         }
 
         return tiles;

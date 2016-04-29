@@ -39,15 +39,16 @@ public class Runner {
                 tiles = creater.createTileMap(capture);
                 //printer.printTileMap(tiles);
                 if (creater.finished){
-                    Thread.sleep(750);
                     break;
                 }
             }
-            clicker = new Thread(new Clicker(6));
-            clicker.start();
-            clicker.join();
-            //run();
-
+            if (creater.success) {
+                clicker = new Thread(new Clicker(6));
+                clicker.start();
+                clicker.join();
+                Thread.sleep(300);
+                run();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

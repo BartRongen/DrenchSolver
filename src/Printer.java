@@ -23,7 +23,7 @@ public class Printer {
         for(int j=0; j<tiles.length; j++){
             System.out.print("|");
             for (int i=0; i<tiles[j].length; i++){
-                System.out.print(tiles[j][i].colorname + "|");
+                System.out.print(tiles[j][i].color + "|");
             }
             System.out.print("\n");
         }
